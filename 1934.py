@@ -9,10 +9,10 @@ def LCD(a,b):
 		q=a//b
 		r=a%b
 #		print(f"{a}={b}*{q}+{r}")
-		if r==0: break;
+		if r==0: break
 		a,b=b,r
 #	print(f"b={b}")
-	lcd/=b
+	lcd/=b #Since b=gcd(a,b)
 	return int(lcd)
 t=int(input())
 for i in range(0,t):

@@ -2,5 +2,8 @@
     "files.associations": {
         "stdio.h": "c"
     },
+    "[python]": {
+        "editor.showUnused": false,
+    },
     "python.REPL.enableREPLSmartSend": false
 }

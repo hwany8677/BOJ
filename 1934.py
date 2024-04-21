@@ -2,7 +2,6 @@
 #LCD(a,b)=ab/gcd(a,b)
 def LCD(a,b):
 	if a<b: a,b=b,a
-	i=2
 	r=-1
 	lcd=a*b
 	while(True):

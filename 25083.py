@@ -1,0 +1,5 @@
+print("         ,r'\"7")
+print("r`-_   ,'  ,/")
+print(" \. \". L_r\'")
+print("   `~\/")
+for _ in range(0,2): print("      |")

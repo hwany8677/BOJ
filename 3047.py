@@ -12,3 +12,5 @@ if order == "CAB":
   print(n[2], n[0], n[1])
 if order == "CBA":
   print(n[2], n[1], n[0])
+if order == "ACB":
+  print(n[0], n[2], n[1])

@@ -1,4 +1,4 @@
-#비교군과 비교방식
+#비교군과 비교방식 (왜 이게 브론즈2임?)
 s=list(map(int,input().split()))
 asc=list(s)
 asc.sort()

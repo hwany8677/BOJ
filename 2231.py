@@ -1,4 +1,5 @@
 #Check if (number)+(digit+digit+...)=n for every loop
+#Takes 2284ms on BOJ
 n=int(input())
 moving_n=int(n)
 gen=[]

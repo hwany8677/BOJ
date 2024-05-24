@@ -1,4 +1,5 @@
 #15% 절사평균 -> (n*15)/100 를 반올림한걸 위아래로 빼줌
+#정렬 쓰지 않고 빈도 수를 탐색하여 위아래 때버리기
 import math
 def qSort(lisT):
     if len(lisT)<2: return lisT
@@ -6,7 +7,7 @@ def qSort(lisT):
         if lisT[0]==lisT[1]: return lisT
         elif lisT[0]>lisT[1]: return [lisT[1],lisT[0]]
         elif lisT[0]<lisT[1]: return [lisT[0],lisT[1]]
-    pivot=lisT[len(lisT)-1]
+    pivot=lisT[n_round((len(lisT)-1)/2)] 
     ls,bg=[],[]
     for i in range(0,len(lisT)):
         if lisT[i]<=pivot and i!=len(lisT)-1: ls.append(lisT[i])

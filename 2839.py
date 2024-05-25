@@ -1,4 +1,5 @@
 #3kg bag and 5kg bag...
+
 def findMin(n):
   five=0
   three=0

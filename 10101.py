@@ -1,0 +1,5 @@
+x=int(input())
+y=int(input())
+z=int(input())
+if x+y+z==180: print("Equilateral" if x==y==z==60 else "Isosceles" if x==y or y==z or x==z else "Scalene")
+else: print("Error")

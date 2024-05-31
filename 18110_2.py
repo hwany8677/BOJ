@@ -1,4 +1,5 @@
 #이것도 PyPy3로 안돌리면 시간초과나옴 ㅅㅂ
+from sys import setrecursionlimit as rec
 import math
 def qSort(lisT):
     if len(lisT)<2: return lisT
@@ -24,7 +25,8 @@ if n==0:
 else:
     sc=[]
     for _ in range(0,n): sc.append(int(input()))
-    sc.sort()
+    rec(99999999)
+    sc=qSort(sc)
     trim=n_round((n*15)/100)
     s=0
     for i in range(trim,len(sc)-trim):

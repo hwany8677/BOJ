@@ -1,6 +1,7 @@
 {
     "files.associations": {
-        "stdio.h": "c"
+        "stdio.h": "c",
+        "17608.C": "cpp"
     },
     "[python]": {
         "editor.showUnused": false,

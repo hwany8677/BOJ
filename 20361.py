@@ -1,3 +1,5 @@
+#Filthy code
+#Slowass code (4160ms)
 from sys import stdin
 N,X,K=map(int,input().split())
 for _ in range(K): 

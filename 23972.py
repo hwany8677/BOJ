@@ -9,5 +9,5 @@ else:
     # print(streak,'',end='')
   # while(extra+K!=extra*N):
   #   extra-=1
-  #   print(extra,'',end='')
+    # print(extra,'',end='')
   print(extra+K)

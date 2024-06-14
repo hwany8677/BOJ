@@ -1,0 +1,38 @@
+n=3
+***   *** blank=3
+ * * * *  blank=1, spacing=1
+  * * *   blank=0, spacing=1
+ * * * *  blank=1, spacing=1
+***   *** blank=3
+
+n=4
+****     **** blank=5
+ *  *   *  *  blank=3, spacing=2
+  *  * *  *   blank=1, spacing=2
+   *  *  *    blank=0, spacing=2
+  *  * *  *   blank=1, spacing=2
+ *  *   *  *  blank=3, spacing=2
+****     **** blank=5
+n=5
+*****       ***** blank=7
+ *   *     *   *  blank=5, spacing=3
+  *   *   *   *   blank=3, spacing=3
+   *   * *   *    blank=1, spacing=3
+    *   *   *     blank=0, spacing=3
+   *   * *   *    blank=1, spacing=3
+  *   *   *   *   blank=3, spacing=3
+ *   *     *   *  blank=5, spacing=3
+*****       ***** blank=7
+
+n=6
+******         ****** blank=9
+ *    *       *    *  blank=7
+  *    *     *    *     ...
+   *    *   *    *
+    *    * *    *
+     *    *    *
+    *    * *    *
+   *    *   *    *
+  *    *     *    *     ...
+ *    *       *    *  blank=7
+******         ****** blank=9

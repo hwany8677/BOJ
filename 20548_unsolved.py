@@ -20,7 +20,7 @@ for i in range(1,3):
             level.append(i*(7**j)+i*(7**j)+i*(7**j)+i*(7**j)+i*(7**j)+i*(7**j)+i*(7**j))
     for j in range(7):
         for k in range(j+1,7): level.append(i*(7**j)+i*(7**k)) 
-
+ 
     for j in range(7):
         for k in range(j+1,7):
             for l in range(k+1,7): level.append(i*(7**j)+i*(7**k)+i*(7**l))

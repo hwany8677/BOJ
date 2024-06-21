@@ -1,5 +1,6 @@
 {pkgs}: {
   deps = [
+    pkgs.kubernetes
     pkgs.vim-full
     pkgs.nano
     pkgs.nettools

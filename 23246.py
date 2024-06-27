@@ -1,4 +1,5 @@
 #Screw lambda functions
+#Hierarchy: pi->sigma->number (the smaller the better)
 def product(lisT):
     pi=1
     for n in lisT: pi*=n

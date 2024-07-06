@@ -22,9 +22,22 @@ sigma=0
 for _ in range(m): #10만번 -> 몇십초씩걸림
     x1,y1,x2,y2=map(int,stdin.readline().split())
     # t0=p()
-    buf2=[]
     SIGMA_X=[]
     
+
+    # VVVV TLE 나는 코드 VVVV
+    # if x1==x2 and y1==y2: 
+    #     print(buf[x1-1][y1-1])
+    #     continue
+    # elif y1==1:
+    #     for i in range(x2):
+    #         SIGMA_X.append(SIGMA_Y[i][y2-1])
+    # else:
+    #     for i in range(x2):
+    #         SIGMA_X.append(SIGMA_Y[i][y2-1]-SIGMA_Y[i][y1-2])
+    # T=Sn(SIGMA_X,x2)
+    # if x1==1: print(T[x2-1])
+    # else: print(T[x2-1]-T[x1-2])
     # t=p()
     # sigma+=t-t0
 # print(f"I/O took {sigma} seconds")

@@ -4,7 +4,7 @@ def seek():
     mode=1
     k=R*C
     i=0
-    
+    while(i<=k)
 for _ in range(int(input())):
     buf=input().split()
     R,C=int(buf[0]),int(buf[1])

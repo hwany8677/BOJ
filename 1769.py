@@ -1,12 +1,14 @@
 s=input()
-s_number=int(s)
 conv_count=0
-while(len(s)>1):
+n=int(s) if len(s)==1 else 0
+length=len(s)
+while(length>1):
     conv_count+=1
-    s_number=0
-    for num in s: s_number+=int(num)
-    s=str(s_number)
-if s_number%3==0:
+    n=0
+    for num in s: n+=int(num)
+    s=str(n)
+    length=len(s)
+if n%3==0:
     print(conv_count)
     print("YES")
 else:

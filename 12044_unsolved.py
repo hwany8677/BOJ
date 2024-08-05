@@ -1,3 +1,4 @@
+#안해
 for _ in range(int(input())):
     n,k=map(int,input().split())
     candidate=[]
@@ -41,4 +42,3 @@ for _ in range(int(input())):
         c=candidate[2][0]
         d=candidate[3][0]
         if a^b^c^d==k: c+=1
-    

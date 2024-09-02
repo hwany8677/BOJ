@@ -7,6 +7,6 @@
 
  A repo for the problems I've solved so far in Baekjoon Online Judge, starting from 2024 (old sources are in my private repo)
 
- The activity might fluctuate from time to time, I'm not a bot after all 💀
+ The activity might fluctuate from time to time, I'm not a bot after all...
 
  I have plans to try some other training websites later on, hmu if you know any. I'll try some of them out

@@ -1,10 +1,13 @@
+#1904ms is a disgrace :((((
 from sys import stdin
 input=stdin.readline
 
 for _ in range(int(input())):
     p=input()
     n=input()
-    buf=list(map(int,input().strip('[').strip(']\n').split(',')))
+    buf=input()
+    if buf=="[]\n": buf=[]
+    else: buf=list(map(int,buf.strip('[').strip(']\n').split(',')))
     #reverse 메소드는 O(n) -> 끝부분을 정하고 pop 써야됨
     to_pop=0
     broken=False

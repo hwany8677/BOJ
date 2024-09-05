@@ -1,20 +1,22 @@
 #5+1+2+1+1=10 daldidalgo daldidan
-#5+1+2+1*(n)+1+1=10+n daldidalgo*(n번) daldidan
-daldidalgo=8
-daldidan=2
+#5+1+2+1*(n)+1+1=10+n daldidalgo*(n번) daldidan 
+daldidalgo=8 #daldi=5, dal=1, go=2, 따라서 8
+daldidan=2 #daldida=1, n=1, 따라서 2
 n=int(input())
 mx_daldidalgo=1
-if n==1: print(10); exit(0)
+if n==1: 
+    print(10)
+    exit(0)
 bam_yang_GANG=daldidalgo
 n-=1
 while(n>0):
-    if mx_daldidalgo>n:
+    if mx_daldidalgo>=n:
         bam_yang_GANG+=1
         break
     else: 
         bam_yang_GANG+=1
         n-=mx_daldidalgo
-        mx_daldidalgo+=1
+        mx_daldidalgo+=mx_daldidalgo
 bam_yang_GANG+=daldidan
 print(bam_yang_GANG)
 

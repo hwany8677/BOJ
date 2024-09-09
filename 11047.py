@@ -8,7 +8,7 @@ count=0
 for _ in range(n): value.append(int(input()))
 for i in range(n-1,-1,-1):
     if value[i]>k: continue
-    elif value[i]<k:
-        k-=value[i]
-        count+=1
+    elif value[i]<=k:
+        count+=(k//value[i])
+        k-=(k//value[i])*value[i]
 print(count)

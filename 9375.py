@@ -9,13 +9,12 @@ for i in range(1,31):
 for _ in range(int(input())):
     cat_set=set()
     n=int(input())
-    res=0
     for _ in range(n):
         name,cat=input().split()
         cat_set.add(cat)
-    res+=n 
     length=len(cat_set)
-    for r in range(1,length+1):
+    res=n
+    for r in range(2,length+1):
         temp=int(fact_precalc[length]/(fact_precalc[r]*fact_precalc[length-r]))
         res+=temp
     print(res-1)

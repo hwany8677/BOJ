@@ -1,59 +1,75 @@
-#Filthy code
-#m-2일 때 구분하기 위해 많조분을 너무 남발함 (코드 가독성 매우낮음)
-#IO면 스킵, I나 O면 그대로
-#희대의 엣지케이스: IOII, IOOI, IOIO, OOIO, OIOI, OOII
 n=int(input())
 m=int(input())
 s=input()
-one_last_blow_check=False #n번째일때 발동 (∵ 'IO'가 반복되기 때문)
 streak=0
 count=0
 i=0
 io_witness=False
+wasnt=True
+# print(f"Looking: i={i}, letter={s[i]}")
+# print(f"**** COUNTED **** (count={count})")
+# print(f"**** FINAL COUNT **** (count={count})")
+# print(f"Streak updated! streak={streak}")
 while(i<m):
-    print(f"Looking: i={i}, letter={s[i]}")
-    if i==m-1: 
-        if s[i]=='I' and io_witness:
-            count+=streak-(n-1)
-        if s[i]=='O' and io_witness:
-            count+=streak-1
-        print(f"**** FINAL COUNT **** (count={count})")
-        break 
-    if i==m-2:
-        if (s[i]=='I' and s[i+1]=='I') and io_witness:
-            count+=streak-(n-1)
-            print(f"**** FINAL COUNT **** (count={count})")
-            break
-    if one_last_blow_check:
-        if io_witness: 
-            count+=streak-1
-            streak=0
-            one_last_blow_check=False
-            io_witness=False
-            print(f"**** COUNTED **** (count={count})")
-            if i>m-3: break
-            continue
-        else:
-            streak=0
-            one_last_blow_check=False
-            io_witness=False
-            continue
-    if s[i]=='I' and s[i+1]=='O':
-        #이미 io_witness=True 전재해놓고 쓴것
-        if i==m-2: 
-            if io_witness:
+    # print(f"Looking: i={i}, letter={s[i]}")
+    #### KNOW YOUR PATTERNS ####
+    # (Increase i by 2 unless specified)
+    # 1. 'IO' -> streak++, always
+    # 2. 'OI' -> Pause, add streak to count by (streak-1)-(n-1) if io_witness is True AND streak>=n.
+    #            Increase i by 1 and reset streak regardless of previous instruction.
+    # 3. 'OO' -> Pause, add streak to count by (streak-1)-(n-1) if io_witness is True AND streak>=n.
+    #            Increase i by 1 and reset streak regardless of previous instruction.
+    # 4. 'II' -> Pause, add streak to count by streak-(n-1) if io_witness is True AND streak>=n.
+    #            Increase i by 1 and reset streak regardless of previous instruction.
+    # 5. When i==m-2, use 1~4 as usual.
+    # 6. When i==m-1:
+    # 6-1. 'I' -> Add streak to count by streak-(n-1) if io_witness set to True AND streak>=n.
+    # 6-2. 'O' -> Add streak to count by (streak-1)-(n-1) if io_witness set to True AND streak>=n.
+    if i==m-1:
+        if s[i]=='I': 
+            if streak>=n and io_witness: 
                 count+=streak-(n-1)
-                print(f"**** FINAL COUNT **** (count={count})")
-            break
-        streak+=1
-        print(f"Streak updated! streak={streak}")
-        i+=2
-        print(f"next i={i}")
-        io_witness=True
-        continue
-    elif (s[i]=='I' and s[i+1]=='I') or (s[i]=='O' and s[i+1]=='I'):
-        if io_witness: one_last_blow_check=True; continue
-    streak=0 
-    i+=1
-    io_witness=False
+            i+=1
+        elif s[i]=='O':
+            if streak>=n and io_witness: 
+                count+=(streak-1)-(n-1)
+            i+=1
+        # print(f"**** FINAL COUNT **** (count={count})")
+        wasnt=False
+    else:
+        if s[i]=='I' and s[i+1]=='O':
+            streak+=1
+            # print(f"Streak updated! streak={streak}")
+            io_witness=True
+            i+=2
+            continue
+        if s[i]=='O' and s[i+1]=='I':
+            if streak>=n and io_witness: count+=(streak-1)-(n-1)
+            i+=1
+            streak=0
+            # print(f"**** COUNTED **** (count={count})")
+            continue
+        if s[i]=='O' and s[i+1]=='O':
+            if streak>=n and io_witness: count+=(streak-1)-(n-1)
+            i+=1
+            streak=0
+            # print(f"**** COUNTED **** (count={count})")
+            continue
+        if s[i]=='I' and s[i+1]=='I':
+            if streak>=n and io_witness: count+=streak-(n-1)
+            i+=1
+            streak=0
+            # print(f"**** COUNTED **** (count={count})")
+            continue
+if i==m and wasnt:
+    i-=1
+    if s[i]=='I': 
+        if streak>=n and io_witness: 
+            count+=streak-(n-1)
+        i+=1
+    elif s[i]=='O':
+        if streak>=n and io_witness: 
+            count+=(streak-1)-(n-1)
+        i+=1
+    # print(f"**** FINAL COUNT **** (count={count})")
 print(count)

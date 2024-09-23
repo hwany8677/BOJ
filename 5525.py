@@ -15,43 +15,45 @@ while(i<m):
     if i==m-1: 
         if s[i]=='I' and io_witness:
             count+=streak-(n-1)
-            #print(f"**** FINAL COUNT **** (count={count})")
         if s[i]=='O' and io_witness:
-            count+=1
+            count+=streak-1
+        print(f"**** FINAL COUNT **** (count={count})")
         break 
     if i==m-2:
         if (s[i]=='I' and s[i+1]=='I') and io_witness:
             count+=streak-(n-1)
-            #print(f"**** FINAL COUNT **** (count={count})")
+            print(f"**** FINAL COUNT **** (count={count})")
             break
     if one_last_blow_check:
-        if s[i]=='I': 
-            count+=streak-(n-1)
+        if io_witness: 
+            count+=streak-1
             streak=0
             one_last_blow_check=False
             io_witness=False
-            #print(f"**** COUNTED **** (count={count})")
+            print(f"**** COUNTED **** (count={count})")
             if i>m-3: break
             continue
         else:
             streak=0
             one_last_blow_check=False
+            io_witness=False
             continue
     if s[i]=='I' and s[i+1]=='O':
         #이미 io_witness=True 전재해놓고 쓴것
         if i==m-2: 
             if io_witness:
                 count+=streak-(n-1)
-                #print(f"**** FINAL COUNT **** (count={count})")
+                print(f"**** FINAL COUNT **** (count={count})")
             break
         streak+=1
-        #print(f"Streak updated! streak={streak}")
+        print(f"Streak updated! streak={streak}")
         i+=2
-        #print(f"next i={i}")
+        print(f"next i={i}")
         io_witness=True
-    else:
+        continue
+    elif (s[i]=='I' and s[i+1]=='I') or (s[i]=='O' and s[i+1]=='I'):
         if io_witness: one_last_blow_check=True; continue
-        streak=0 
-        i+=1
-        io_witness=False
+    streak=0 
+    i+=1
+    io_witness=False
 print(count)

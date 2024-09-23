@@ -1,24 +1,32 @@
+#다해노코 이루부러상!!!!!!!!!
 #5+1+2+1+1=10 daldidalgo daldidan
 #5+1+2+1*(n)+1+1=10+n daldidalgo*(n번) daldidan 
 daldidalgo=8 #daldi=5, dal=1, go=2, 따라서 8
 daldidan=2 #daldida=1, n=1, 따라서 2
 n=int(input())
-mx_daldidalgo=1
+real_n=n
+mx_daldidalgo=1 #Stack of daldidalgo (ex daldidalgodaldidalgo -> 2, daldidalgo*5 -> 5)
 if n==1: 
     print(10)
     exit(0)
 bam_yang_GANG=daldidalgo
 n-=1
 while(n>0):
+    #print(f"Current daldidalgo count={mx_daldidalgo}")
+    #print(f"Remaining daldidalgo to paste={n}")
     if mx_daldidalgo>=n:
-        bam_yang_GANG+=1
+        #print("Too much daldidalgo for remaining daldidalgo. Pasting remaining daldodalgos...")
         break
     else: 
         bam_yang_GANG+=1
         n-=mx_daldidalgo
+        #print(f"Remaining daldidalgo deducted by {mx_daldidalgo}.")
         mx_daldidalgo+=mx_daldidalgo
+        #print(f"Max daldidalgo update. Count is now {mx_daldidalgo}.")
+    #print(f"bam_yang_GANG={bam_yang_GANG}")
+    #print()
 bam_yang_GANG+=daldidan
-print(bam_yang_GANG)
+print(bam_yang_GANG if real_n%2 else bam_yang_GANG+1)
 
 
 

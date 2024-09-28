@@ -25,31 +25,38 @@ for _ in range(int(input())):
     m,n,k=map(int,input().split()) #가로(m), 세로(n)
     buf=[[0 for _ in range(m)] for _ in range(n)]
     nodes=[[] for _ in range(m*n)]
+    visited=[False]*(n*m)
     for _ in range(k): 
         hor,ver=map(int,input().split()) #가로, 세로
         buf[ver][hor]=1
     for i in range(n):
         for j in range(m):
+            current=buf[i][j]
             node_no=(m*i)+j
-            if j<n-1:
+            has_adjacent=False
+            if j<m-1 and current==1:
                 if buf[i][j+1]==1:
                     nodes[node_no].append(node_no+1)
                     nodes[node_no+1].append(node_no)
-            if i<n-1:
+                    has_adjacent=True
+            if i<n-1 and current==1:
                 if buf[i+1][j]==1:
-                    nodes[node_no].append(node_no+n)
-                    nodes[node_no+n].append(node_no)
+                    nodes[node_no].append(node_no+m)
+                    nodes[node_no+m].append(node_no)
+                    has_adjacent=True
+            if not(has_adjacent): 
+                if current==1: nodes[node_no].append(node_no)
+                else: visited[node_no]=True #Visited로 둠으로써 탐색을 방지
     startpoint=0
-    visited=[False]*(n*m)
-    visited=BFS(nodes,startpoint,visited)
-    count=1
+    count=0
+    last_point=0
     while(1):
-        if sum(visited)==(n*m): break
-        else:
-            for i in range(n*m):
-                if visited[i]==False:
-                    startpoint=i
-                    break
+        for i in range(last_point-1,n*m):
+            if visited[i]==False:
+                startpoint=i
+                last_point=i
+                break
         visited=BFS(nodes,startpoint,visited)
         count+=1
+        if sum(visited)==(n*m): break
     print(count)

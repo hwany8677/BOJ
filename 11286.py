@@ -1,4 +1,4 @@
-#stdin.readline을 안쓰면 tle뜨는
+#최소힙의 최소
 from sys import stdin
 input=stdin.readline
 

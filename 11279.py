@@ -2,7 +2,7 @@
 from sys import stdin
 input=stdin.readline
 
-buf=[-1]
+buf=[2147483648]
 length=0
 for _ in range(int(input())):
     x=int(input())
@@ -18,11 +18,11 @@ for _ in range(int(input())):
             i=1
             while(i*2<length):
                 ances=i
-                where=i*2 if buf[i*2]<buf[(i*2)+1] else (i*2)+1
-                if buf[ances]>=buf[where]: buf[ances],buf[where]=buf[where],buf[ances]
+                where=i*2 if buf[i*2]>buf[(i*2)+1] else (i*2)+1
+                if buf[ances]<=buf[where]: buf[ances],buf[where]=buf[where],buf[ances]
                 i=where
             temp=length//2
-            if buf[temp]>=buf[length]: buf[temp],buf[length]=buf[length],buf[temp]
+            if buf[temp]<=buf[length]: buf[temp],buf[length]=buf[length],buf[temp]
     else: 
         if length==0:
             buf.append(x)
@@ -33,6 +33,6 @@ for _ in range(int(input())):
             ances=length//2
             element=length
             while (ances>0): #상위 노드와 비교, 스왑
-                if buf[ances]>=buf[element]: buf[ances],buf[element]=buf[element],buf[ances]
+                if buf[ances]<=buf[element]: buf[ances],buf[element]=buf[element],buf[ances]
                 ances//=2
                 element//=2

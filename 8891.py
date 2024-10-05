@@ -1,9 +1,7 @@
+#계차수열 어케함?
 from sys import stdin
 input=stdin.readline
 
-mn=0
-buf=[]
 for _ in range(int(input())):
-    x=int(input())
-    if x==0:
-        
+    a,b=map(int,input().split())
+    

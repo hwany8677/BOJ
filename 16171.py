@@ -3,7 +3,9 @@
 #하지만 qe, wr, e!, qr와 같은, 떨어진 문자들은 해병-유효 (기열싸제어로 '유효하지 않음'이라 한다)
 s=list(input())
 k=input()
-t=list(k)
+t=[]
+for c in s:
+    if c.isalpha(): t.append(c)
 start=0
 end=len(k)-1
 while(end<len(t)):

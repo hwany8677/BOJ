@@ -1,17 +1,14 @@
 #나는 친구가 적다 (x)
 #나는 친구가 (Large하게) 적다 (o)
-#If chain breaks, then start over
-#If chain becomes perfect, stop the loop
-#Break the chain ONLY when the letter isn't numeric
+#2%, 4%, 11% WA
 s=input()
 to_find=input()
 length=len(to_find)
 chain=0
-num_chain=0
 i=0
 for char in s:
     if i>length-1: break
-    print(char,to_find[i],chain)
+    # print(char,to_find[i],chain)
     if char==to_find[i]:
         chain+=1
         i+=1
@@ -20,13 +17,7 @@ for char in s:
             if char==to_find[0]:
                 chain=1
                 i=1
-                continue
-            chain=0
-            i=0
-        else:
-            num_chain+=1
-            if num_chain==2:
+            else:
                 chain=0
                 i=0
-    num_chain=0
 print(1 if chain==length else 0)

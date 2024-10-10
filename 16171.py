@@ -11,7 +11,7 @@ end=len(k)-1
 while(end<len(t)):
     c=0
     for i in range(start,end+1): 
-      if t[i]==k[i-start]: c+=1
+        if t[i]==k[i-start]: c+=1
     # print(f"start: {start} end: {end}")
     if c==len(k): break
     start+=1

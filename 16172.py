@@ -4,20 +4,12 @@
 s=input()
 to_find=input()
 length=len(to_find)
-chain=0
-i=0
+s_convert=''
 for char in s:
-    if i>length-1: break
-    # print(char,to_find[i],chain)
-    if char==to_find[i]:
-        chain+=1
-        i+=1
-    elif char!=to_find[i]:
-        if char.isalpha():
-            if char==to_find[0]:
-                chain=1
-                i=1
-            else:
-                chain=0
-                i=0
-print(1 if chain==length else 0)
+    if char.isalpha(): s_convert+=char
+s=s_convert
+if len(s)==0:
+    print(0)
+    exit(0)
+if to_find in s: print(1)
+else: print(0)

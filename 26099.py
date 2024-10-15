@@ -1,4 +1,4 @@
-#괴씸죄로 날먹할께요
+#괘씸죄로 날먹할께요
 n=int(input())
 count=0
 if n%5==0: print(n//5)

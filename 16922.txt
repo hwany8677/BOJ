@@ -1,0 +1,88 @@
+n=1
+I, V, X, L
+-> 4
+
+n=2
+II, IV, IX, IL
+VV, VX, VL
+XX, XL
+LL
+-> 4c2+4=10
+
+n=3
+<전체 경우 4개>
+
+III, IIV, IIX, IIL
+IVV, IVX, IVL
+IXX, IXL
+ILL
+(4c2+4)
+
+VVV, VVX, VVL
+VXX, VXL
+VLL
+(3c2+3)
+
+XXX, XXL
+XLL
+(2c2+2)
+
+LLL
+(1)
+-> 20
+
+n=4
+
+IIII, IIIV, IIIX, IIIL
+IIVV, IIVX, IIVL
+IIXX, IIXL
+IILL
+(4c2+4)
+
+IVVV, IVVX, IVVL
+IVXX, IVXL
+IVLL
+(3c2+3)
+
+IXXX, IXXL
+IXLL
+(2c2+2)
+
+ILLL
+(1)
+
+VVVV, VVVX, VVVL
+VVXX, VVXL
+VVLL
+(3c2+3)
+
+VXXX, VXXL
+VXLL
+(2c2+2)
+
+VLLL
+(1)
+
+XXXX, XXXL
+XXLL
+(2c2+1)
+
+XLLL
+(1)
+
+LLLL
+(1)
+-> 35
+
+n=5
+
+<만의 자리: I>
+(대충 n=4의 사건을 포함해서 35가지)
+
+<만의 자리: V>
+(n=4의 모든 사건을 셀 수 없음.
+이유는 만의자리가 I일때와는 다르게
+VI같은 조합이 불가능하기 때문)
+
+n=1의 사건과 n=4의 곱사건
+-> 140

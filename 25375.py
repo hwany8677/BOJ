@@ -1,16 +1,7 @@
+#풀이 이해하는데 한 세월
+#헛짓거리에 한 세월
+#정수론은 어렵다 :blobimfine:
 input=open(0).readline
 for _ in range(int(input())):
     a,b=map(int,input().split())
-    x=a;y=a;i=a
-    doesExist=0
-    while(x+y<=b):
-        if x+y==b: 
-            doesExist=1
-            break
-        y=a*(i+1)
-        if x+y==b:
-            doesExist=1
-            break
-        x=a*(i+1)
-        i+=1
-    print(doesExist)
+    print(1 if a*2<=b and b%a==0 else 0)

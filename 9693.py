@@ -6,7 +6,7 @@ i=1
 while(n!=0):
     zero_trail=0
     for div in precalc:
-        zero_trail+=n//div
+    zero_trail+=n//div
     print(f"Case #{i}: {zero_trail}")
     n=int(input())
     i+=1

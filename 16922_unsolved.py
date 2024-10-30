@@ -1,4 +1,5 @@
 #조합론? Naga. (I,V,X,L)
+#1,5,10,50
 from math import factorial as fact
 n=int(input())
 precalc=[0,4,10,20,35

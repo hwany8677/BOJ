@@ -10,7 +10,6 @@ LL
 -> 4c2+4=10
 
 n=3
-<전체 경우 4개>
 
 III, IIV, IIX, IIL
 IVV, IVX, IVL

@@ -15,9 +15,10 @@ def gcd(a,b):
         a,b=b,r
         q=a//b; r=a%b 
     return b
-def derivative(info): #hmu if this is a bad practice
+def derivative(info): #hmu if this is a bad practice << it is, past me :/
+    is_fractional,numer,denomi,coeff,exp=info[0],info[1],info[2],info[3],info[4]
     for _ in range(2):
-        if info[0]: 
+        if is_fractional: 
             # calcres_1=info[1]*info[4]
             # calcres_2=info[2]%info[4]
             # if calcres_2!=0:
@@ -27,37 +28,38 @@ def derivative(info): #hmu if this is a bad practice
             #     if info[2]==1: #분모가 1이 될 경우 
             #         info[0]=False
             #         info[3]=1
-            info[1]*=info[4]
-        elif info[3]=='1': info[3]=1; info[3]*=info[3]
-        else: info[3]*=info[4]
-        info[4]-=1
+            numer*=exp
+        elif coeff=='1': coeff=1; coeff*=coeff
+        else: coeff*=exp
+        exp-=1 #<< this POS is the culprit
     rt_buf=""
     #Check if fraction is improper fraction & check if its divisibility
-    if info[0]:
+    if is_fractional:
         #가분수인지 진분수인지 채크
-        if info[1]>info[2]:
-            num_denom_gcd=gcd(info[1],info[2])
-            info[1]//=num_denom_gcd
-            info[2]//=num_denom_gcd
-            if info[2]==1: #분모가 1이 되었으므로 정수
-                info[0]=False
-                info[3]=info[1]
-        elif info[1]<info[2]:
-            num_denom_gcd=gcd(info[2],info[1])
-            info[1]//=num_denom_gcd
-            info[2]//=num_denom_gcd
+        if numer>denomi:
+            num_denom_gcd=gcd(numer,denomi)
+            numer//=num_denom_gcd
+            denomi//=num_denom_gcd
+            if denomi==1: #분모가 1이 되었으므로 정수
+                is_fractional=False
+                coeff=numer
+        elif numer<denomi:
+            num_denom_gcd=gcd(denomi,numer)
+            numer//=num_denom_gcd
+            denomi//=num_denom_gcd
         else: #2/2, 4/4와 같은 경우
-            info[0]=False
-            info[3]=1
+            is_fractional=False
+            coeff=1
     #Check exponent -> check coefficient
-    if info[4]>0:
-        if info[0]: rt_buf+=f"{info[1]}/{info[2]}x" #Fractional
-        elif info[3]==1: rt_buf+="x" #coeff=1
-        elif info[3]>1: rt_buf+=f"{info[3]}x" #coeff>1
-        if info[4]>1: rt_buf+=f"^{info[4]}" #exp>1
-    if info[4]==0: 
-        if info[0]: rt_buf+=f"{info[1]}/{info[2]}"
-        else: rt_buf+=f"{info[3]}"
+    if exp>0:
+        print(coeff)
+        if is_fractional: rt_buf+=f"{numer}/{denomi}x" #Fractional
+        elif coeff==1: rt_buf+="x"
+        elif coeff>1: rt_buf+=f"{coeff}x"
+        if info[4]>1: rt_buf+=f"^{exp}"
+    if exp==0: 
+        if is_fractional: rt_buf+=f"{numer}/{denomi}"
+        else: rt_buf+=f"{coeff}"
         
     return rt_buf
 for _ in range(int(input())):
@@ -82,7 +84,7 @@ for _ in range(int(input())):
             #temp code
             # print(buf)
             # buf=""
-            #real code do not remove
+            #below is real code do not remove
             numer=0; denomi=0
             coeff=""; exp=""
             is_fractional=False; exp_decided=False

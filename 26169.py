@@ -1,15 +1,25 @@
+# 0  1  2  3  4
+#...
+#20 21 22 23 24
+#      ||
+#      ||
+#      vv
+#00 01 02 03 04
+#...
+#40 41 42 43 44 (node//5,node%5)
 from collections import deque
 from copy import copy
 input=open(0).readline
-def BFS(nodes,first_visit,visited):
+def BFS(nodes,first_visit,visited,gridmap):
     buf=deque([first_visit])
     steps=3
     count=1
     while(count>0):
-        visiting=buf.popleft()
-        visited[visiting]=True
+        cur_visit=buf.popleft()
+        visited[cur_visit]=True
         count-=1
-        for node in nodes[visiting]:
+        for node in nodes[cur_visit]:
+            r,c=node//5,node%5
             if visited[node]: continue
             else:
                 visited[node]=True
@@ -35,4 +45,4 @@ for i in range(5):
                 nodes[node_no+5].append(node_no)
 r,c=map(int,input().split())
 first_visit=5*r+c
-BFS(nodes,first_visit,visited)
+BFS(nodes,first_visit,visited,buf)

@@ -1,0 +1,4 @@
+t,f,s,p,c=map(int,input().split())
+print(t*6+f*3+s*2+p+c*2,end=' ')
+t,f,s,p,c=map(int,input().split())
+print(t*6+f*3+s*2+p+c*2)

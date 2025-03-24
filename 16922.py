@@ -1,3 +1,4 @@
+#아 ㅅㅂ 마라톤에 6개월 차이두고 다시뜨는건 뭔데!!!!
 #조합론? Naga. (I,V,X,L)
 #1,5,10,50
 from math import factorial as fact

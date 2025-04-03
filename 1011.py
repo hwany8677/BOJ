@@ -11,7 +11,7 @@ final.sort()
 for _ in range(int(input())):
     x,y=map(int,input().split())
     dist=y-x
-    low,high=1,92685
+    low,high=1,92685 #ㅅㅂ 92685를 46343이라 적어놓고선 왜 틀렸는지 하루종일 고민함
     res=0
     while(1):
         mid=(low+high)//2

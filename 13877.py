@@ -12,12 +12,12 @@ for i in range(p):
         else:
             res=0
             break
-    print(res,end=' ')
+    print(int(res),end=' ')
     #Decimal
-    print(buf,end=' ')
+    print(int(buf),end=' ')
     #Hexadecimal
     res=0
     for j in range(length):
         current=int(buf[j])
         res+=current*(16**(length-1-j))
-    print(res)
+    print(int(res))

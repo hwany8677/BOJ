@@ -1,0 +1,18 @@
+col={
+    "a":1,
+    "b":2,
+    "c":3,
+    "d":4,
+    "e":5,
+    "f":6,
+    "g":7,
+    "h":8
+}
+start=input()
+end=input()
+start_x=col[start[0]]
+end_x=col[end[0]]
+start_y=int(start[1])
+end_y=int(end[1])
+res=sorted([abs(end_x-start_x),abs(end_y-start_y)])
+print(res[0],res[1])
